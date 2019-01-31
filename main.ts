@@ -199,7 +199,25 @@ namespace grove {
         return RangeInInches;
     }
     
-  
+     /**
+     * Create a new driver Grove - 4-Digit Display
+     * @param clkPin value of clk pin number
+     * @param dataPin value of data pin number
+     */
+    //% blockId=grove_tm1637_create block="4-Digit Display at|%clkPin|and|%dataPin"
+    export function createDisplay(clkPin: DigitalPin, dataPin: DigitalPin): TM1637
+    {
+        let display = new TM1637();
+        
+        display.buf = pins.createBuffer(4);
+        display.clkPin = clkPin;
+        display.dataPin = dataPin;
+        display.brightnessLevel = 0;
+        display.pointFlag = false;
+        display.clear();
+        
+        return display;
+    }
     /**
      * 
      */
